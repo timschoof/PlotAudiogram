@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1554479857686.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2034835667",
+    "id" : "6C2074CF",
+    "lastKnownWriteTime" : 1554483991,
+    "last_content_update" : 1554483991872,
+    "path" : "P:/Generally useful/PlotAudiogram/audiogramR.R",
+    "project_path" : "audiogramR.R",
+    "properties" : {
+        "cursorPosition" : "14,71",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
