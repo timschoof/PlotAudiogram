@@ -22,8 +22,13 @@ if (!require(here)) install.packages("here")
 data<-read_csv(here(paste(DataFile,".csv",sep="")))
 
 # Reformat the data for plotting
-d<- data %>% 
-  gather(key = "ear-freq", value = "dB",-participant,-group) %>% 
+if("group" %in% colnames(data)){
+  long_data <- gather(data, key = "ear-freq", value = "dB",-participant,-group)
+} else {
+  long_data <- gather(data, key = "ear-freq", value = "dB",-participant)
+}
+
+d <- long_data %>% 
   separate(col = "ear-freq", into = c("ear","freq"), sep = (1)) %>%
   mutate(freq = (type.convert(freq))/1000) %>% 
   mutate(freqLabels = formatC(freq, format="g")) %>% 
@@ -45,7 +50,7 @@ control <- d %>%
   subset(group %in% ControlGroup) %>% 
   group_by(freq, ear) %>% 
   summarize(mindB = min(dB), maxdB = max(dB)) %>% 
-  gather(key = "participant", value = "dB",-freq, -ear)
+  gather(key = "MinMax", value = "dB",-freq, -ear)
 }
 
 # Plot audiogram
@@ -53,7 +58,7 @@ p <- ggplot()+
   facet_grid(. ~ ear) +
   geom_line(data = patient, aes(x=freq, y=dB, group=participant))
   if (!missing(ControlGroup)) {
-    p <- p + geom_area(data = control, aes(x=freq, y=dB, group=participant),
+    p <- p + geom_area(data = control, aes(x=freq, y=dB, group=MinMax),
               fill="grey", alpha=.7)
       }
   p + scale_y_reverse(limits = c(100,-10), breaks = seq(-10, 100, by=10))+

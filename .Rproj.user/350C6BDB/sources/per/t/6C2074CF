@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2034835667",
+    "hash" : "1960107456",
     "id" : "6C2074CF",
-    "lastKnownWriteTime" : 1554483991,
-    "last_content_update" : 1554483991872,
+    "lastKnownWriteTime" : 1554667680,
+    "last_content_update" : 1554667680218,
     "path" : "P:/Generally useful/PlotAudiogram/audiogramR.R",
     "project_path" : "audiogramR.R",
     "properties" : {
-        "cursorPosition" : "14,71",
-        "scrollLine" : "0"
+        "cursorPosition" : "77,1",
+        "scrollLine" : "55"
     },
     "relative_order" : 1,
     "source_on_save" : false,
